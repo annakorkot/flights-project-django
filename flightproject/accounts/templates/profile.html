@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags%}
+{%load static%}
+{% block extrahead %}<link rel="stylesheet" href="{%static 'css/profile.css'%}"> {% endblock extrahead %}
+
+{% block content %}
+<div class="update-form">
+    <h2 class ="account-heading">Hi {{user.username}}</h2>
+    <p class="text-secondary">{{user.email}}</p>
+    <form method="POST" action="." >
+        {% csrf_token %}
+        <div class="register-form-wrapper">
+            <fieldset class="register-form-container">
+                <div class="join-title">Profile Info</div>
+                {{user_update_form|crispy}}
+                {{customer_update_form|crispy}}
+                <div class="sign-up-button-wrapper">
+                    {% comment %} <button class="sign-now-button" type="submit">Update</button> {% endcomment %}
+                    <button type="button submit"  class="btn btn-info btn-lg " id = "update-button">Update</button>
+                </div>
+
+            </fieldset>
+        </div>
+    </form>
+</div>
+{% endblock content %}

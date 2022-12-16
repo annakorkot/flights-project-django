@@ -1,0 +1,67 @@
+.flight-detail{
+    display: flex;
+    color: rgb(47, 54, 61);
+    border-radius: 8px;
+    text-size-adjust: 10px;
+    /* background-image: url('New-Zealand.jpg'); */
+}
+.flight-container:hover{
+    box-shadow: 1px 1px 10px #8787ba;
+    background-image: linear-gradient(rgba(239,249,249,1) 0%, rgba(182,199,226,1)),
+    url("../static/css/images/New-Zealand.jpg");
+}
+.flight-container{
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    height: 110px;
+    width: 690px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -16px;
+    border-radius: 10px;
+    
+    
+}
+.flights-wrapper{
+    padding-top: 125px;
+    width: auto;
+}
+.pagination{
+    padding-top: 20px;
+}
+
+.tickets-wrapper{
+    padding-top: 20px;
+}
+.ticket-container{
+    margin-bottom: 29px;
+    margin-top: 35px;
+}
+.ticket-detail{
+    color: black;
+    
+
+}
+#tickets-bar{
+    width: 100px;
+
+}
+#search-btn{
+  flex-basis: 200px;  
+}
+#search-btn-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    padding-top:25px;
+    margin-left: 800px;
+}
+
+#exampleFormControlSelect1{
+    margin-top: 23px;
+}
+
+#book-flight-button{
+    height: 34px;
+}
+

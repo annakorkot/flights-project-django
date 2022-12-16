@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block extrahead %}<link rel="stylesheet" type="text/css" href="{% static 'css/content.css' %}">{% endblock extrahead %}
+
+{% block content %}
+<div class="flight-container">   
+    <div class="flight-detail">Airline Company : {{flight.airline_company.name}}</div>
+    <div class="flight-detail">From : {{flight.origin_country.name}} &#10140; To :{{flight_id_obj.destination_country.name}}</div>
+    <div class="flight-detail">Departure Time : {{flight.departure_time}} Landing Time : {{flight.landing_time}}</div>
+    
+     
+  </div>
+  <form action="." method="post">
+    {% csrf_token %}
+    <button name="create_ticket" type="button submit" class="btn btn-info btn-lg "  value="true">Book This Flight</button>
+    <input type="hidden" name="flight_id" value="{{flight.id}}"></input>
+    </form>
+    
+    
+{% endblock content %}

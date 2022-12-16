@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block extrahead %}<link rel="stylesheet" type="text/css" href="{% static 'css/content.css' %}">{% endblock extrahead %}
+
+{% block content %}
+<div class="flights-wrapper">
+    {%for flight in queryset%}
+    <div class="flight-container">   
+      <div class="flight-detail">Airline Company : {{flight.airline_company.name}}</div>
+      <div class="flight-detail">From : {{flight.origin_country.name}} &#10140; To :{{flight.destination_country.name}}</div>
+      <div class="flight-detail">Departure Time : {{flight.departure_time}} Landing Time : {{flight.landing_time}}</div>
+      
+    </div>
+    <hr>        
+    {%endfor%}
+  </div>
+  {% endblock content %}

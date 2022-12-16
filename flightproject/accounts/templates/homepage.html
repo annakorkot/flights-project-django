@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{%load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/content.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/countries.css' %}">
+{% endblock extrahead %}
+
+
+{% block content %}
+
+
+{% include 'search_bar.html' %}
+
+<div class="country-wrapper">
+  
+    {% for country in countries %}
+    <a href="{% url 'search_flight.html'%}?country_to={{country.name|urlencode}}">
+    <div class="country-container bg-image card shadow-1-strong ">
+      
+      <img class="bg-img" src= "{% get_static_prefix %}images/{{country.id}}.jpg"alt="..."> 
+      
+        <div class="country-detail "> Flights To: {{country.name}}</div>
+      
+        <input type="hidden" name=country.id value = {{country.id}}></input>
+        
+      </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock content %}

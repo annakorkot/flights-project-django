@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block extrahead %}<link rel="stylesheet" type="text/css" href="{% static 'css/content.css' %}">{% endblock extrahead %}
+
+{% block content %}
+
+{% include 'search_bar.html' %}
+
+<div class="flights-wrapper">
+  {%for flight in queryset%}
+  <form action="{% url 'book_flight.html' %}" method="post">
+    {% csrf_token %}
+  <div class="flight-container">   
+    <div class="flight-detail">Airline Company : {{flight.airline_company.name}}</div>
+    <div class="flight-detail">From : {{flight.origin_country.name}} &#10140; To :{{flight.destination_country.name}}</div>
+    <div class="flight-detail">Departure Time : {{flight.departure_time}} Landing Time : {{flight.landing_time}}</div>
+    
+      <button type="button submit" class="btn btn-info" id="book-flight-button" name="flight_id" value={{flight.id}}>Book</button>
+
+  </div>
+  <hr>  
+</form>      
+  {%endfor%}
+</div>
+<div class="pagination">
+  <span class="step-links">
+      {% if queryset.has_previous %}
+          <a href="?page={{ queryset.previous_page_number }}">&laquo; previous</a>
+      {% endif %}
+
+      <span class="current">
+          Page {{ queryset.number }} of {{ queryset.paginator.num_pages }}.
+      </span>
+
+      {% if queryset.has_next %}
+          <a href="?page={{ queryset.next_page_number }}">next</a>
+          
+      {% endif %}
+  </span>
+</div>
+{% endblock content %}

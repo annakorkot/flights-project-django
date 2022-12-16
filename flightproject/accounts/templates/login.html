@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{%load static %}
+
+{% block extrahead %}<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">{% endblock extrahead %}
+{% block content %}
+    
+
+
+    <div>
+        {% block title %}
+        <h1 class="sign-in-title"> Sign In</h1>
+        {% endblock title %}
+    </div>
+    <form class="login-form" method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <div class="login-button-wrapper">
+            <button class="login-button" type = "submit">Login</button>
+        </div>
+    </form>
+    <small class="small-text">
+        Need An Account? <a href="/register">Register Here</a>
+    </small>
+
+
+
+
+{% endblock content %}

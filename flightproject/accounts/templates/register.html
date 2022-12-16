@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags%}
+{% load static %}
+{% block extrahead %}<link rel="stylesheet" href="{%static 'css/register.css'%}">{% endblock extrahead %}
+
+
+{% block content %}
+
+<div class= "content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="register-form-wrapper">
+            <fieldset class="register-form-container">
+                <div class="join-title">CREATE AN ACCOUNT</div>
+                {{form|crispy}}
+                <div class="sign-up-button-wrapper">
+                    <button class="sign-now-button" type="submit">Sign up now</button>
+                </div>
+                <div class="sign-in-text-wrapper">
+                    <small> 
+                        Already have an account? <a href="/login">Sign in </a>
+                    </small>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+        
+
+    
+</div>
+
+{% endblock content %}
+

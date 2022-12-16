@@ -1,0 +1,42 @@
+
+<section class="search-sec">
+    <div class="container">
+      <form method="GET" action="{%url 'search_flight.html'%}">
+            <div class="row">
+                <div class="col-lg-13">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                          From:
+                            <input type="text" class="form-control search-slt" name="country_from" placeholder="Country">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                          To:
+                            <input type="text" class="form-control search-slt" name="country_to" placeholder="Country">
+                        </div>
+
+                        <div class="col-lg-2 col-md-3 col-sm-12 p-0" id="start-p" for="start">Start Date
+                          <input type="date" id="end" class="form-control text-left" name="date_start">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-12 p-0" id="end-p" for="end">End Date
+                          <input type="date" id="end" class="form-control text-left ml-2" name="date_end">
+                        </div>
+                          <div class="col-md-3 p-0" id="tickets-bar">
+                            <select name="number_of_tickets" class="form-control search-slt" id="exampleFormControlSelect1">
+                              <option selected="selected" disabled>Tickets</option>
+                              <option value="1">1 Ticket</option>
+                              <option value="2">2 Tickets</option>
+                              <option value="3">3 Tickets</option>
+                            </select>
+                          </div>
+                      <div class="container ">
+                          <div id="search-btn-wrapper">
+                            <button type="button submit" class="btn btn-info btn-lg " id="search-btn">Search Flights &#10140;</button>
+                            
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
